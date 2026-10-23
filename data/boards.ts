@@ -812,6 +812,13 @@ export const boards: Board[] = [
         category: ["popular", "startup"],
         tags: ["yc", "startup", "early-stage"]
     },
+    {
+        name: "kooste.io",
+        description: "Aggregator of freelance IT gigs in Finland",
+        link: "https://kooste.io/",
+        category: ["remote"],
+        tags: ["full-time", "contract", "freelance"]
+    },
 ];
 
 export function getBoardsByCategory(category: Category) {
