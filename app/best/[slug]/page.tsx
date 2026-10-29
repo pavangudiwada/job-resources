@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SiteHeader from "@/app/components/SiteHeader";
 import BoardCard from "@/app/[category]/BoardCard";
 import {
   getBoardsForSeoCollection,
@@ -71,33 +72,35 @@ export default async function BestCollectionPage({
   };
 
   return (
-    <main className="min-h-screen p-6 md:p-10 max-w-7xl mx-auto">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
-      />
-      <div className="mb-8">
-        <Link
-          href="/best"
-          className="inline-block text-sm text-blue-600 hover:underline mb-3"
-        >
-          Back to all collections
-        </Link>
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">
-          {collection.title}
-        </h1>
-        <p className="text-gray-600 max-w-3xl">{collection.intro}</p>
-      </div>
-
-      {relevantBoards.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {relevantBoards.map((board) => (
-            <BoardCard key={board.name} board={board} />
-          ))}
+    <>
+      <SiteHeader />
+      <main className="standalone-content">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        />
+        <div className="mb-8">
+          <Link href="/best" className="back-link">
+            Back to all collections
+          </Link>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            {collection.title}
+          </h1>
+          <p className="standalone-intro">{collection.intro}</p>
         </div>
-      ) : (
-        <p className="text-gray-600">No matching boards found for this topic.</p>
-      )}
-    </main>
+
+        {relevantBoards.length > 0 ? (
+          <div className="board-grid">
+            {relevantBoards.map((board) => (
+              <BoardCard key={board.name} board={board} />
+            ))}
+          </div>
+        ) : (
+          <p className="standalone-intro">
+            No matching boards found for this topic.
+          </p>
+        )}
+      </main>
+    </>
   );
 }
