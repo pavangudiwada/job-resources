@@ -676,6 +676,13 @@ export const boards: Board[] = [
 
     // Data & AI
     {
+        name: "caio.pro",
+        description: "Find Chief AI Officer, VP of AI, Head of AI and related leadership roles",
+        link: "https://caio.pro",
+        category: ["aiml"],
+        tags: ["ai", "leadership", "executive"]
+    },
+    {
         name: "AI Jobs",
         description: "Find a job at a cutting-edge AI company",
         link: "https://www.moaijobs.com",
