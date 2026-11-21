@@ -676,6 +676,13 @@ export const boards: Board[] = [
 
     // Data & AI
     {
+        name: "AI Gig Scout",
+        description: "Remote AI training, LLM evaluation and AI engineering gigs, updated daily, with pay shown",
+        link: "https://aigigscout.com",
+        category: ["remote", "aiml"],
+        tags: ["ai", "ai-training", "llm-evaluation", "contract", "freelance"]
+    },
+    {
         name: "AI Jobs",
         description: "Find a job at a cutting-edge AI company",
         link: "https://www.moaijobs.com",
